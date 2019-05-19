@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <script src="./app.js"></script>
+      <title>Faceblock</title>
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-lg navbar-primary bg-gradient-primary">
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <a class="navbar-brand" href="#">Faceblock</a>
+         <div class="alert alert-success mt-3" id="current-action" role="alert">
+            Welcome
+         </div>
+      </nav>
+      <div class="container-fluid">
+         <div class="progress">
+           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+         </div>
+         <hr>
+         <div class="row">
+            <div class="col-lg-3 mt-1 mb-1">
+               <div class="card card-profile-signup p-1">
+                  <form>
+                     <div class="card-body">
+                        <h5 class="card-title">Create your profile</h5>
+                        <div class="form-group">
+                           <input type="text" class="form-control" id="sign-up-username" required="required" placeholder="What is your name?">
+                        </div>
+                        <div class="form-group">
+                           <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="sign-up-profile-pic" required onchange="readURL(this);">
+                              <label class="custom-file-label" for="validatedCustomFile">Profile Picture</label>
+                              <script type="text/javascript">
+                                 function readURL(input) {
+                                    if (input.files && input.files[0]) {
+                                       var reader = new FileReader();
+
+                                       reader.onload = function (e) {
+                                           $('#prof-pic-uploading')
+                                               .attr('src', e.target.result)
+                                               .width('100%')
+                                               .height('auto');
+                                       };
+                                       reader.readAsDataURL(input.files[0]);
+                                   }
+                                 }
+
+                              </script>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <input type="text" class="form-control" id="sign-up-title" placeholder="Explain yourself in a sentence">
+                        </div>
+                        <div class="form-group">
+                           <textarea class="form-control" id="sign-up-intro" rows="2" placeholder="What is your greatest goal in life?"></textarea>
+                        </div>
+                        <p>
+                           ETH Address:
+                           <span class="eth-address"></span>
+                           <input type="text" class="form-control" id="sign-up-eth-address" value="0x…" disabled>
+                        </p>
+                        </p>
+                        <button type="submit" class="btn btn-primary" id="sign-up-button">Sign Up</button> 
+
+                        <img id="prof-pic-uploading" src="" style='margin-top:20px'/>
+
+                        </br>
+                        </br>
+                        <a id="url"></a>
+                        </br>
+                        </br>
+                        <img id="output">
+                     </div>
+                  </form>
+               </div>
+            </div>
+            <div class="col-lg-6 mt-1 mb-1" id="users-div">
+               <!-- content -->
+            </div>
+
+            <div class="col-lg-3 mt-1 mb-1">
+               <div class="card p-1">
+                  <div class="card-body">
+                     
+                     <h5 class="card-title">Faceblock</h5>
+                     <i>User Profiles stored on the blockchain.</i>
+
+                     <p>Each entry will add a User record to the Ethereum blockchain. It will store the senders address, their username, and a hash that references an endpoint on the <a href='https://ipfs.io/'>IPFS</a> network. AKA the Interplanetary File System. This was my final project for <a href='https://consensys.net/academy/'>Consensys Academy</a> which I took in hopes of learning the basics of Solidity smart contract develpoment, and building in the Web3 ecosystem.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
